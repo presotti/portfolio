@@ -17,7 +17,7 @@ jobs:
           username: ${{secrets.dockerusr}}
           password: ${{secrets.dockerpwd}}
 
-          context: ./src
+          context: .
           file: ./Dockerfile
           push: true
           tags: |
