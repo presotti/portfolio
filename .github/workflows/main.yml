@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.2.0
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3.6.1
       
       - name: Construcao da imagem docker
         uses: docker/build-push-action@v6.9.0
@@ -20,4 +23,5 @@ jobs:
           tags: |
             binho6/potfolio:${{github.run_number}}
             binho6/potfolio:latest
+          platforms: linux/arm64
       
