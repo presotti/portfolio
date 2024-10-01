@@ -18,6 +18,6 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            binho6/potfolio: v${{github.run.number}}
+            binho6/potfolio: ${{github.run_number}}
             binho6/potfolio: latest
       
