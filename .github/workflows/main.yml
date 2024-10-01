@@ -19,7 +19,6 @@ jobs:
         uses: docker/build-push-action@v6.9.0
         with:
           context: .
-          file: .
           push: true
           tags: |
             binho6/portfolio:${{github.run_number}}
