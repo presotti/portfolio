@@ -1,0 +1,27 @@
+name: CI
+
+on: 
+  push
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.0
+
+      - name: SonarCloud Scan
+      - uses: SonarSource/sonarcloud-github-action@v3.0.0
+      
+      - name: Construcao da imagem docker
+      - uses: docker/build-push-action@v6.9.0
+        with:
+          username: ${{secrets.dockerusr}}
+          password: ${{secrets.dockerpwd}}
+
+          context: ./src
+          file: ./Dockerfile
+          push: true
+          tags: |
+            binho6/potfolio: v${{github.run.number}}
+            binho6/potfolio: latest
+      
